@@ -1,0 +1,10 @@
+.text{
+  font-family: 'Courier New', Courier, monospace;
+  color: goldenrod;
+}
+
+.appear{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

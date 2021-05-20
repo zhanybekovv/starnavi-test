@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
+import React, {useState, useEffect} from 'react';
+import Matrix from './components/Matrix';
+import Picker from './components/Picker';
 
-function App() {
+
+const App = () => {
+  const [start, setStart] = useState(false);
+  const [fields, setFields] = useState();
+  const [selected, setSelected] = useState();
+
+  useEffect(() => {
+    axios.get('http://demo1030918.mockable.io/').then((res) => {
+      setFields(res.data);
+      setSelected(res.data.easyMode.field) 
+    }).catch((e) => console.log('error', e))
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{marginLeft: '50px'}}>
+      <Picker 
+        fields={fields} 
+        selected={selected} 
+        setSelected={setSelected} 
+        setStart={setStart}
+        start={start}
+      />
+      <Matrix field={selected} start={start}/>
     </div>
   );
 }

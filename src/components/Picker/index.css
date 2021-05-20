@@ -1,0 +1,18 @@
+.button {
+  width: 80px;
+  height: 25px;
+  background-color: #1E90FF;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+
+.custom-select {
+  width: 150px;
+  height: 25px;
+}
